@@ -38,7 +38,6 @@ petvibe-site/
 │       ├── img-pets-home.png
 │       └── talk-to-me-cat.png
 
-
 ## 📌 Status
 
 ✅ Página inicial finalizada  
