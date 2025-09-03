@@ -154,7 +154,7 @@ body {
 
 .pets-section-at-block {
     position: absolute;
-    top: -120px;
+    top: -91px;
     left: 50%;
     transform: translateX(-50%);
     max-width: 80%;
