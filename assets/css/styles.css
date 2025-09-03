@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* =============================================== */
+/* ESTILOS GLOBAIS E VARIÁVEIS                     */
+/* =============================================== */
 @keyframes pulse-glow {
     0% {
         filter: drop-shadow(0 0 8px rgba(242, 169, 32, 0.4));
@@ -14,16 +17,6 @@
     }
 }
 
-
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Petrona", serif;
-    box-sizing: border-box;
-}
-
-/* Palet Color */
 :root {
     --primary: #D97802;
     --secondary: #009AA4;
@@ -32,118 +25,153 @@
     --light: #F0FCFC;
 }
 
-
-body {
-    background: var(--light);
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Petrona", serif;
+    box-sizing: border-box;
 }
 
-/* Menu Desktop */
-.menu-container {
+body {
+    font-size: 16px;
     background-color: var(--light);
+}
+
+/* =============================================== */
+/* ESTILOS BASE (MOBILE-FIRST)                     */
+/* =============================================== */
+
+/* --- HEADER MOBILE --- */
+.desktop-menu {
+    display: none;
+    /* Esconde o menu de desktop em telas pequenas */
+}
+
+.header-mobile {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 70px;
+    padding: 20px;
+    width: 100%;
+    background-color: var(--light);
 }
 
-.logo-home {
-    height: 30px;
-}
-
-.link-menu {
-    margin-left: 15px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
+.hamburger-icon {
+    font-size: 30px;
+    cursor: pointer;
     color: var(--secondary);
-    cursor: pointer;
-    box-sizing: border-box;
-    padding: 8px;
-    border: 2px solid transparent;
-    border-radius: 20px;
-    transition: all 0.3s ease;
 }
 
-.link-menu:hover {
-    color: var(--primary);
-    font-weight: 700;
-    border: var(--secondary);
-    padding: 8px;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 20px;
-    box-sizing: border-box;
+.logo-container-mobile .logo-home {
+    height: 25px;
 }
 
+.spacer {
+    width: 30px;
+    /* Espaço para manter o logo no centro */
+}
 
-.button-menu {
-    margin-left: 15px;
-    background-color: var(--accent);
+/* --- MENU LATERAL (SIDENAV) --- */
+.sidenav {
+    height: 100%;
+    width: 0;
+    /* Começa escondido */
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    background-color: var(--secondary);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 22px;
     color: var(--light);
-    text-transform: uppercase;
-    border: none;
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 18px;
-    font-weight: 900;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: var(--accent);
+}
+
+.sidenav .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* --- EFEITO DE OVERLAY (FUNDO ESCURO) --- */
+#overlay {
+    display: none;
+    /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Cor preta com 60% de opacidade */
+    z-index: 15;
+    /* Abaixo do menu (z-index: 20), mas acima do resto do site */
     cursor: pointer;
+    /* O cursor vira uma "mãozinha" para indicar que é clicável */
 }
 
-.button-menu:hover {
-    background: var(--primary);
+.button-menu-mobile {
+    background-color: var(--accent);
+    margin: 20px 32px;
+    padding: 10px !important;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: 900;
 }
 
-.button-menu:active {
-    box-shadow: 0px 2px 10px rgba(255, 187, 0, 0.61);
-    transition: all 0.3s ease;
-}
-
-
-
-/* Section homepage */
-
+/* --- SEÇÃO PRINCIPAL (HOME) --- */
 .home-section {
     background: var(--secondary);
     display: grid;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 1fr;
+    /* Apenas uma coluna */
+    padding: 20px;
 }
-
-/* Container Left */
 
 .container-left {
     box-sizing: border-box;
     background-color: var(--accent);
     border-radius: 20px;
     position: relative;
-    padding: 30px 40px;
-    margin: 166px 60px;
+    padding: 20px;
+    margin-top: 100px;
     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.247);
-
 }
 
 .pets-section-at-block {
     position: absolute;
-    top: -166px;
+    top: -120px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 490px;
+    max-width: 80%;
     z-index: 10;
     filter: drop-shadow(4px 15px 10px rgba(0, 0, 0, 0.4));
 }
 
-
-
 .h1-homepage {
-    font-size: 80px;
+    font-size: 50px;
     font-weight: 900;
     color: var(--light);
-    margin-top: 70px;
+    margin-top: 100px;
     text-align: center;
 }
 
 .h2-homepage {
-    font-size: 35px;
+    font-size: 24px;
     font-weight: 900;
     color: var(--light);
     text-align: center;
@@ -155,22 +183,26 @@ body {
 
 .double-button {
     display: grid;
-    grid-template-columns: 30% 30%;
+    grid-template-columns: 1fr 1fr;
     margin-top: 30px;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
+}
 
+.button-primary,
+.button-secundary {
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .button-primary {
-    border: none;
     background-color: var(--secondary);
-    padding: 12px;
-    border-radius: 20px;
-    justify-content: space-between;
-    text-transform: uppercase;
     color: var(--light);
-    font-weight: bolder;
 }
 
 .button-primary:hover {
@@ -179,18 +211,11 @@ body {
 
 .button-primary:active {
     box-shadow: 0px 2px 10px rgba(255, 187, 0, 0.61);
-    transition: all 0.3s ease;
 }
 
 .button-secundary {
-    border: none;
     background-color: var(--light);
-    padding: 12px;
-    border-radius: 20px;
-    text-transform: uppercase;
     color: var(--secondary);
-    font-weight: bolder;
-    justify-content: space-between;
 }
 
 .button-secundary:hover {
@@ -200,32 +225,225 @@ body {
 
 .button-secundary:active {
     box-shadow: 0px 2px 10px rgba(0, 238, 255, 0.61);
-    transition: all 0.3s ease;
 }
 
-/* Container Right */
-
 .container-right {
-    box-sizing: border-box;
-    margin-top: 230px;
-
+    padding: 20px 0;
+    margin-top: 20px;
 }
 
 .text-homepage {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 500;
     color: var(--light);
-    /* width: 450px; */
     text-align: center;
-    margin-right: 60px;
-    margin-bottom: 30px;
+    margin: 0;
 }
 
 .talk-to-me {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     position: fixed;
     bottom: 20px;
     right: 20px;
     animation: pulse-glow 1.5s infinite ease-in-out;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.site-footer a {
+    color: var(--secondary);
+}
+
+/* =============================================== */
+/* ESTILOS DO CONTEÚDO PRINCIPAL DAS PÁGINAS       */
+/* =============================================== */
+
+.main-content {
+    max-width: 900px;
+    /* Define uma largura máxima para o conteúdo */
+    margin: 40px auto;
+    /* Centraliza o conteúdo na página com margens em cima/baixo */
+    padding: 20px;
+    /* Adiciona um espaçamento interno */
+    min-height: 60vh;
+    /* Garante que a página tenha uma altura mínima */
+}
+
+.main-content h1 {
+    color: var(--secondary);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+}
+
+.main-content p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* =============================================== */
+/* ESTILOS DO RODAPÉ (FOOTER) - VERSÃO SIMPLES     */
+/* =============================================== */
+
+.site-footer {
+    background-color: #f2f2f2;
+    /* Fundo cinza claro */
+    padding: 25px 20px;
+    text-align: center;
+    color: #555;
+    border-top: 1px solid #e0e0e0;
+    /* Linha sutil no topo */
+}
+
+.footer-contact-icons {
+    margin-bottom: 20px;
+    /* Espaço entre os ícones e o texto legal */
+}
+
+.footer-contact-icons a {
+    font-size: 28px;
+    /* Tamanho dos ícones (emojis) */
+    margin: 0 12px;
+    /* Espaçamento entre os ícones */
+    text-decoration: none;
+    color: var(--secondary);
+    /* Cor dos ícones */
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.footer-contact-icons a:hover {
+    transform: scale(1.25);
+    /* Aumenta o ícone ao passar o mouse */
+    color: var(--primary);
+    /* Muda a cor ao passar o mouse */
+}
+
+.footer-legal p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-legal nav {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.footer-legal nav a {
+    color: #555;
+    text-decoration: none;
+}
+
+.footer-legal nav a:hover {
+    text-decoration: underline;
+}
+
+/* =============================================== */
+/* ESTILOS PARA TELAS MAIORES (TABLET/DESKTOP)     */
+/* =============================================== */
+@media screen and (min-width: 768px) {
+
+    .header-mobile {
+        display: none;
+    }
+
+    .desktop-menu {
+        width: 100%;
+        background-color: var(--light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 70px;
+    }
+
+    .logo-home {
+        height: 30px;
+    }
+
+    .link-menu {
+        margin-left: 15px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        color: var(--secondary);
+        cursor: pointer;
+        padding: 8px;
+        border: 2px solid transparent;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .link-menu:hover {
+        color: var(--primary);
+        border: 2px solid var(--secondary);
+    }
+
+    .button-menu {
+        margin-left: 15px;
+        background-color: var(--accent);
+        color: var(--light);
+        text-transform: uppercase;
+        border: none;
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 18px;
+        font-weight: 900;
+        cursor: pointer;
+    }
+
+    .button-menu:hover {
+        background: var(--primary);
+    }
+
+    .button-menu:active {
+        box-shadow: 0px 2px 10px rgba(255, 187, 0, 0.61);
+    }
+
+    .home-section {
+        grid-template-columns: 50% 50%;
+        align-items: baseline;
+        padding: 0;
+    }
+
+    .container-left {
+        padding: 30px 40px;
+        margin: 166px 60px;
+    }
+
+    .pets-section-at-block {
+        top: -166px;
+        max-width: 490px;
+    }
+
+    .h1-homepage {
+        font-size: 80px;
+        margin-top: 70px;
+    }
+
+    .h2-homepage {
+        font-size: 35px;
+    }
+
+    .double-button {
+        grid-template-columns: 30% 30%;
+        gap: 20px;
+    }
+
+    .container-right {
+        margin-top: 230px;
+    }
+
+    .text-homepage {
+        font-size: 30px;
+        margin-right: 60px;
+        margin-bottom: 30px;
+    }
 }
