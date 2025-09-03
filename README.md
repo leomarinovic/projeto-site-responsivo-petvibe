@@ -1,4 +1,4 @@
-# 🐾 PetVive
+# 🐾 PetVibe
 
 **Cuidamos do seu pet com amor.**  
 Projeto desenvolvido como parte do desafio _We Care About Your Pet_, proposto pelo DevClub. Este site representa minha jornada como desenvolvedor iniciante, aplicando tudo que aprendi até agora em HTML, CSS e JavaScript.
